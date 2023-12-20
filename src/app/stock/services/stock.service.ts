@@ -23,6 +23,8 @@ export class StockService {
     this.testCase = stocks?.length ? stocks : this.initialTestCase;
     let minPrice = this.testCase[0];
     this.maxProfit = 0;
+    this.sellDay = 0;
+    this.buyDay = 0;
     for (let i = 0; i < this.testCase.length; i++) {
       if ((this.testCase[i] < minPrice) && (i < this.testCase.length - 1)) {
         minPrice = this.testCase[i];
