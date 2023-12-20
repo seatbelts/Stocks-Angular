@@ -4,8 +4,7 @@ import { BComponent } from './components/b/b.component';
 import { AComponent } from './components/a/a.component';
 import { StockService } from './services/stock.service';
 import { StockRoutingModule } from './stock-routing.module';
-
-
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @NgModule({
   declarations: [
@@ -14,6 +13,7 @@ import { StockRoutingModule } from './stock-routing.module';
   ],
   imports: [
     CommonModule,
+    ButtonsModule.forRoot(),
     StockRoutingModule
   ],
   providers: [
