@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StockModule } from './stock/stock.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,6 @@ import { StockModule } from './stock/stock.module';
   ],
   imports: [
     BrowserModule,
-    StockModule,
     AppRoutingModule
   ],
   providers: [],
