@@ -17,7 +17,7 @@ export class StockService {
 
   constructor() { }
 
-  public stockAlgorithm(stocks?: number[]): Observable<boolean> {
+  public stockAlgorithm(stocks?: number[]): void {
     stocks = stocks || this.testCase;
     let minPrice = Math.max(...stocks);
     this.maxProfit = 0;
@@ -30,8 +30,6 @@ export class StockService {
         this.sellDay = i;
       }
     }
-
-    return of(true);
   }
 
   public stockInformation(): Observable<StockInterface> {
