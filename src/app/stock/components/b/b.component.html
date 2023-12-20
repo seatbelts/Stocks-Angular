@@ -1,1 +1,16 @@
-<p>b works!</p>
+<div class="container" *ngIf="(stockInformation$ | async) as stockInformation">
+  <div class="row">
+    <label>Buy Day: {{ stockInformation.buyDay }}</label>
+  </div>
+  <div class="row">
+    <label>Sell Day: {{ stockInformation.sellDay }}</label>
+  </div>
+  <div class="row">
+    <label>Profit: {{ stockInformation.maxProfit }}</label>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <button class="btn btn-primary" (click)="navigateToA()">Navigate Back to A Component</button>
+    </div>
+  </div>
+</div>
