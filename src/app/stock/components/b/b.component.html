@@ -1,5 +1,8 @@
 <div class="container" *ngIf="(stockInformation$ | async) as stockInformation">
   <div class="row">
+    <label>Test Case: [{{ stockInformation.stocksValues }}]</label>
+  </div>
+  <div class="row">
     <label>Buy Day: {{ stockInformation.buyDay }}</label>
   </div>
   <div class="row">
