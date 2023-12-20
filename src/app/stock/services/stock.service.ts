@@ -7,7 +7,9 @@ import { StockInterface } from '../../interfaces.stock/interfaces/stock';
 })
 export class StockService {
 
-  private testCase: number[] = [25, 36, 78, 14, 64, 27, 80];
+  private initialTestCase: number[] = [25, 36, 78, 14, 64, 27, 80];
+
+  private testCase: number[] = [];
 
   private maxProfit: number = 0;
 
@@ -18,22 +20,27 @@ export class StockService {
   constructor() { }
 
   public stockAlgorithm(stocks?: number[]): void {
-    stocks = stocks || this.testCase;
-    let minPrice = Math.max(...stocks);
+    this.testCase = stocks?.length ? stocks : this.initialTestCase;
+    let minPrice = this.testCase[0];
     this.maxProfit = 0;
-    for (let i = 0; i < stocks.length; i++) {
-      if (stocks[i] < minPrice) {
-        minPrice = stocks[i];
+    for (let i = 0; i < this.testCase.length; i++) {
+      if ((this.testCase[i] < minPrice) && (i < this.testCase.length - 1)) {
+        minPrice = this.testCase[i];
         this.buyDay = i;
-      } else if (stocks[i] - minPrice > this.maxProfit) {
-        this.maxProfit = stocks[i] - minPrice;
+      } else if ((this.testCase[i] - minPrice) > this.maxProfit) {
+        this.maxProfit = this.testCase[i] - minPrice;
         this.sellDay = i;
       }
     }
   }
 
   public stockInformation(): Observable<StockInterface> {
+    if (!this.testCase.length) {
+      this.stockAlgorithm();
+    }
+
     return of({
+      stocksValues: this.testCase,
       maxProfit: this.maxProfit || 'None',
       buyDay: this.maxProfit ? this.buyDay : 'None',
       sellDay: this.maxProfit ? this.sellDay : 'None',
