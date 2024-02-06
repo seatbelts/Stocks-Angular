@@ -1,4 +1,4 @@
-# CargoAngularChallenge
+# Best Day to Buy Stocks
 
 Project Verifies when is the best day to buy and sell stocks, trying to get a Max Profit from it. If it's not possible to get a profit, response will be 0, and will be displayed as `None`. On Navigation, the best day to buy and sell will be displayed (on terms of array position, 0...n), along side the Max Profit generated and the data used for the algorithm.
 
